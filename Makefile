@@ -46,3 +46,7 @@ clean:
 test-local:
 	@echo "Running local test..."
 	go run cmd/lambda/main.go
+
+
+image:
+	cat response.json | jq -r '.image' | base64 -d > output.png && open output.png
