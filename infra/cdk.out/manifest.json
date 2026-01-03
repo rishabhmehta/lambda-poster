@@ -1,0 +1,119 @@
+{
+  "version": "39.0.0",
+  "artifacts": {
+    "PosterStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "PosterStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "PosterStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "PosterStack.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/1cb72c43c05e875fe10f38cf40664c29226027f1f58d541d9195cf262e2b1cc8.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "PosterStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "PosterStack.assets"
+      ],
+      "metadata": {
+        "/PosterStack/PosterGenerator/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PosterGeneratorServiceRole85AE8256"
+          }
+        ],
+        "/PosterStack/PosterGenerator/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PosterGeneratorFF0D0D0A"
+          }
+        ],
+        "/PosterStack/PosterApi/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PosterApiAB91DE40"
+          }
+        ],
+        "/PosterStack/PosterApi/DefaultStage/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PosterApiDefaultStage87837841"
+          }
+        ],
+        "/PosterStack/PosterApi/POST--generate/LambdaIntegration/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PosterApiPOSTgenerateLambdaIntegration43854836"
+          }
+        ],
+        "/PosterStack/PosterApi/POST--generate/LambdaIntegration-Permission": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PosterApiPOSTgenerateLambdaIntegrationPermissionBD37CCFA"
+          }
+        ],
+        "/PosterStack/PosterApi/POST--generate/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "PosterApiPOSTgenerate1865BE06"
+          }
+        ],
+        "/PosterStack/ApiUrl": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ApiUrl"
+          }
+        ],
+        "/PosterStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/PosterStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/PosterStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/PosterStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "PosterStack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}
