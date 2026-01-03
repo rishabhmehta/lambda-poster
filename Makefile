@@ -1,4 +1,4 @@
-.PHONY: build deploy destroy clean deps
+.PHONY: build deploy destroy clean deps test image
 
 # AWS Profile
 PROFILE = techpix
@@ -47,6 +47,14 @@ test-local:
 	@echo "Running local test..."
 	go run cmd/lambda/main.go
 
+
+# Generate poster and open it
+test:
+	@echo "Generating poster..."
+	@curl -s -X POST https://w1qbo9xwwf.execute-api.ap-south-1.amazonaws.com/generate \
+		-H "Content-Type: application/json" \
+		-d '{"name": "Test User", "avatarUrl": "https://i.pravatar.cc/300"}' > response.json
+	@$(MAKE) image
 
 image:
 	cat response.json | jq -r '.image' | base64 -d > output.png && open output.png
