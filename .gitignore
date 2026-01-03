@@ -1,0 +1,29 @@
+# Build output
+build/
+bootstrap
+
+# CDK
+infra/cdk.out/
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test files
+output.png
+response.json
